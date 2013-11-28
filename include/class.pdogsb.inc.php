@@ -17,7 +17,7 @@
 
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=gsb_frais';   		
+      	private static $bdd='dbname=gsb_frais_new_n2';   		
       	private static $user='root' ;    		
       	private static $mdp='' ;	
 		private static $monPdo;
@@ -53,12 +53,34 @@ class PdoGsb{
  * @param $mdp
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
 */
-	public function getInfosVisiteur($login, $mdp){
-		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
-		where visiteur.login='$login' and visiteur.mdp='$mdp'";
-		$rs = PdoGsb::$monPdo->query($req);
-		$ligne = $rs->fetch();
-		return $ligne;
+	public function getInfosUtilisateur($login, $mdp){
+            
+                $req0 = "select type 
+                from utilisateur
+                where login = '$login' and mdp = md5('$mdp')";
+                $rs = PdoGsb::$monPdo->query($req0);
+                $ligne = $rs->fetch();
+                
+                if($req0['type'] == 'V')
+                {
+		$req1 = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom , utilisateur.mdp as mdp, utilisateur.type as type
+                from visiteur inner join utilisateur
+                ON visiteur.login = utilisateur.login
+		where visiteur.login = '$login' and utilisateur.mdp = md5('$mdp')";
+                $rs1 = PdoGsb::$monPdo->query($req1);
+                $retour = $rs1->fetch();
+                }
+                else
+                {
+                $req2 = "select gestionnaire.id as id, gestionnaire.nom as nom, gestionnaire.prenom as prenom ,utilisateur.mdp as mdp, utilisateur.type as type
+                from visiteur inner join gestionnaire
+                on visiteur.login = gestionnaire.login
+		where visiteur.login = '$login' and gestionnaire.mdp = md5('$mdp')";
+                $rs2 = PdoGsb::$monPdo->query($req2);
+                $retour = $rs2->fetch();
+                }
+                
+		return $retour;
 	}
 
 /**
