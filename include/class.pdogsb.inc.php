@@ -319,5 +319,26 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
+        
+        
+        
+        
+        public function getLesVisiteurDisponibles(){
+		$req = "select DISTINCT fichefrais.idVisiteur as id, visiteur.nom as nom
+                from  fichefrais inner join visiteur
+                on fichefrais.idVisiteur = visiteur.id
+                where fichefrais.idEtat = 'RB' OR fichefrais.idEtat = 'VA'
+                order by fichefrais.idVisiteur desc ";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesVisiteur =array();
+		$laLigne = $res->fetch();
+		while($laLigne != null)	{
+			$nomVisiteur = $laLigne['nom'];
+			$lesVisiteur["$nomVisiteur"] = array("nom"  => "$nomVisiteur");
+			$laLigne = $res->fetch(); 		
+		}
+		return $lesVisiteur;
+	}
 }
+
 ?>
