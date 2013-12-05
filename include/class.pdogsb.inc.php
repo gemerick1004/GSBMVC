@@ -61,7 +61,7 @@ class PdoGsb{
                 $rs = PdoGsb::$monPdo->query($req0);
                 $ligne = $rs->fetch();
                 
-                if($req0['type'] == 'V')
+                if($ligne['type'] == 'V')
                 {
 		$req1 = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom , utilisateur.mdp as mdp, utilisateur.type as type
                 from visiteur inner join utilisateur
@@ -73,9 +73,9 @@ class PdoGsb{
                 else
                 {
                 $req2 = "select gestionnaire.id as id, gestionnaire.nom as nom, gestionnaire.prenom as prenom ,utilisateur.mdp as mdp, utilisateur.type as type
-                from visiteur inner join gestionnaire
-                on visiteur.login = gestionnaire.login
-		where visiteur.login = '$login' and gestionnaire.mdp = md5('$mdp')";
+                from utilisateur inner join gestionnaire
+                on utilisateur.login = gestionnaire.login
+		where utilisateur.login = '$login' and utilisateur.mdp = md5('$mdp')";
                 $rs2 = PdoGsb::$monPdo->query($req2);
                 $retour = $rs2->fetch();
                 }
