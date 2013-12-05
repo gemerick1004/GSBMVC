@@ -36,7 +36,7 @@
                     echo '<a href="#">Valider fiche de frais</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
-                    echo '<a href="index.php?uc=etatFrais&action=selectionnerVisiteur" title="Consultation des fiches de frais">Suivre les fiches de frais</a>';
+                    echo '<a href="index.php?uc=Visiteur&action=selectionnerVisiteur" title="Consultation des fiches de frais">Suivre les fiches de frais</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
                     echo '<a href="#">Créer nouveau visiteur</a>';

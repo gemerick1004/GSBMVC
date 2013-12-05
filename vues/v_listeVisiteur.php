@@ -6,20 +6,17 @@
          
       <p>
 	 
-        <label for="lstMois" accesskey="n">Visiteur : </label>
-        <select id="lstMois" name="lstMois">
+        <label for="lstVisiteur" accesskey="n">Visiteur : </label>
+        <select id="lstVisiteur" name="lstVisiteur">
             <?php
 			foreach ($lesVisiteur as $unVisiteur)
 			{
 			    $visiteur = $unVisiteur['nom'];
-?>
+            ?>
 				<option value="<?php echo $visiteur ?>"><?php echo  $visiteur ?> </option>
-				<?php 
+                    <?php 
                         }
-			
-			
-           
-		   ?>    
+                    ?>    
             
         </select>
       </p>
