@@ -33,7 +33,7 @@
                     echo $_SESSION['prenom']."  ".$_SESSION['nom'];
                     echo '</li>';
                     echo '<li class="smenu">'; 
-                    echo '<a href="#">Valider fiche de frais</a>';
+                    echo '<a href="index.php?uc=validerFrais&action=visiteur" title="Valider fiche de frais">Valider fiche de frais</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
                     echo '<a href="#">Suivre paiement fiche de frais</a>';
