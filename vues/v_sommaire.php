@@ -33,10 +33,13 @@
                     echo $_SESSION['prenom']."  ".$_SESSION['nom'];
                     echo '</li>';
                     echo '<li class="smenu">'; 
-                    echo '<a href="index.php?uc=gererFrais&action=saisirFrais" title="Saisie fiche de frais ">Saisie fiche de frais</a>';
+                    echo '<a href="#">Valider fiche de frais</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
-                    echo '<a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>';
+                    echo '<a href="#">Suivre paiement fiche de frais</a>';
+                    echo '</li>';
+                    echo '<li class="smenu">';
+                    echo '<a href="#">Créer nouveau visiteur</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
                     echo '<a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>';
