@@ -39,7 +39,7 @@
                     echo '<a href="index.php?uc=Visiteur&action=selectionnerVisiteur" title="Consultation des fiches de frais">Suivre les fiches de frais</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
-                    echo '<a href="#">Créer nouveau visiteur</a>';
+                    echo '<a href="index.php?uc=creerVisiteur&action=creerVisit" title="Créer un nouveau visiteur">Créer nouveau visiteur</a>';
                     echo '</li>';
                     echo '<li class="smenu">';
                     echo '<a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>';

@@ -27,6 +27,9 @@ switch($uc){
         case 'Visiteur' :{
                 include("controleurs/c_Visiteur.php");break;
         }
+        case 'creerVisiteur' :{
+                include ("controleurs/c_creerVisiteur.php"); break;
+        }
 }
 include("vues/v_pied.php") ;
 ?>
