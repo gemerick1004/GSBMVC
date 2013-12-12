@@ -20,6 +20,22 @@
             
         </select>
       </p>
+      <p>
+        
+        <label for="lstMois" accesskey="n">Mois : </label>
+        <select id="lstMois" name="lstMois">
+            <?php
+			foreach ($lesVisiteur as $unVisiteur)
+			{
+			    $visiteur = $unVisiteur['mois'];
+            ?>
+				<option value="<?php echo $visiteur ?>"><?php echo  $visiteur ?> </option>
+                    <?php 
+                        }
+                    ?>    
+            
+        </select>
+      </p>
       </div>
       <div class="piedForm">
       <p>

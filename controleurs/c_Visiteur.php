@@ -14,12 +14,14 @@ switch($action){
         }
         case 'voirEtatVisiteur':{
 		$leVisiteur = $_REQUEST['lstVisiteur']; 
+                $leMois = $_REQUEST['lstMois'];
 		$lesVisiteur=$pdo->getLesVisiteurDisponibles();
+                $leMois = $pdo->getFicheFraisVisiteur($lesVisiteur, $leMois);
 		$VisiteurASelectionner = $leVisiteur;
 		include("vues/v_listeVisiteur.php");
-		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$leMois);
-		$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$leMois);
-		$lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur,$leMois);
+		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur,$leMois);
+		$lesFraisForfait= $pdo->getLesFraisForfait($leVisiteur,$leMois);
+		$lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur,$leMois);
 		$numAnnee =substr( $leMois,0,4);
 		$numMois =substr( $leMois,4,2);
 		$libEtat = $lesInfosFicheFrais['libEtat'];
