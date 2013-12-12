@@ -22,7 +22,7 @@ switch($uc){
 	}
 
         case 'validerFrais' :{
-                include ("controleurs/c_validerFicheFrais.php");break;
+                include ("controleurs/c_validerFrais.php");break;
         }
         case 'Visiteur' :{
                 include("controleurs/c_Visiteur.php");break;
