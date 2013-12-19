@@ -1,10 +1,5 @@
 <?php
 include("vues/v_sommaire.php");
-////Recuperation des visiteurs
-//$listeVisiteur=$pdo->visiteurFicheEnCours();
-////Recuperation des mois
-//$listeMois=$pdo->moisFicheEnCours();
-
 $action=$_GET['action'];
 switch($action)
 {
@@ -25,7 +20,6 @@ switch($action)
                             }
                     }
 		}
-		include("vues/v_validerFrais.php");
 		break;
 	}
 	case 'VisiteurChoisit':
@@ -64,13 +58,10 @@ switch($action)
 			}
 		}
             }
-            //Recuperation des frais hors forfaits.
-//            $FraitHorsForfait=$pdo->getLesFraisHorsForfait($_POST['Id'],$_POST['mois']);
-            
             break;
 	}
 }
 
 include("vues/v_validerFrais.php");
-//include("vues/v_validerFraisPersonneChoisi.php");
+include ("vues/v_validerFraisPersonneChoisi.php");
 ?>

@@ -2,7 +2,7 @@
     <h2>Valider les fiches de frais des visiteurs médicaux</h2>
     <h3><legend>Visiteur à sélectionner :</legend></h3>
 	<div class="corpsForm">
-            <form method="POST" action="index.php?uc=validerFrais&action=VisiteurChoisit"><br/>
+            <form method="POST" <!--action="c_validerFrais.php?action=AfficherFiche"-->><br/>
                 <label for="visiteur">Visiteur :</label>
                 <select name="Id">
                     <?php
