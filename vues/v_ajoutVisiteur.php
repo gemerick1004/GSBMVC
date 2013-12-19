@@ -1,4 +1,15 @@
+<?php
 
+include("include/class.pdogsb.inc.php");
+if(!empty($_POST))
+    
+{
+    extract($_POST);    
+    $visiteur = new visiteur();
+    $visiteur->insertVisiteur($id, $nom, $prenom, $login,$adresse, $cp, $ville,$dateEmbauche);
+}
+    
+?>
 
 <div id="contenu">
       <h2>Ajouter Visiteur</h2>
