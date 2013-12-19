@@ -343,18 +343,25 @@ class PdoGsb{
 		return $lesVisiteur;
 	}
         
-            public function getFicheFraisVisiteur($idVisiteur)
+            public function getFicheFraisVisiteur($idVisiteur, $mois)
             {
-                $req = "select DISTINCT fichefrais.idVisiteur as id, visiteur.nom as nom, MONTH(dateModif) as leMois
-                    from  fichefrais inner join visiteur
-                    on fichefrais.idVisiteur = visiteur.id
-                    where fichefrais.idEtat = 'RB' OR fichefrais.idEtat = 'VA'
-                    and MONTH(NOW()) - MONTH(dateModif) < 12
-                    and id = '$idVisiteur'
-                    order by fichefrais.idVisiteur desc";
-                    $res = PdoGsb::$monPdo->query($req);
-                    $laLigne = $res->fetch();
-                    return $laLigne;
+//                $req = "select DISTINCT fichefrais.idVisiteur as id, visiteur.nom as nom, MONTH(dateModif) as leMois
+//                    from  fichefrais inner join visiteur
+//                    on fichefrais.idVisiteur = visiteur.id
+//                    where fichefrais.idEtat = 'RB' OR fichefrais.idEtat = 'VA'
+//                    and MONTH(NOW()) - MONTH(dateModif) < 12
+//                    and nom = '$idVisiteur'
+//                    order by fichefrais.idVisiteur desc";
+//                    $res = PdoGsb::$monPdo->query($req);
+//                    $laLigne = $res->fetch();
+//                    return $laLigne;
+                    
+                $req = "select ficheFrais.idEtat as idEtat, ficheFrais.dateModif as dateModif, ficheFrais.nbJustificatifs as nbJustificatifs, 
+                    ficheFrais.montantValide as montantValide, etat.libelle as libEtat from  fichefrais inner join Etat on ficheFrais.idEtat = Etat.id 
+                    where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
+		$res = PdoGsb::$monPdo->query($req);
+		$laLigne = $res->fetch();
+		return $laLigne;
             }
         
 }
